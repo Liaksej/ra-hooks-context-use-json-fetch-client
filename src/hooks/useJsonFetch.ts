@@ -1,7 +1,4 @@
 import { useEffect, useReducer } from "react";
-import { threadId } from "worker_threads";
-import { Simulate } from "react-dom/test-utils";
-import error = Simulate.error;
 
 interface State {
   loading: boolean;
@@ -42,7 +39,7 @@ function reducer(state: State, action: Actions) {
   }
 }
 
-export function useJsonFetch(url: string, opts?: any) {
+export function useJsonFetch(url: string, opts?: {}) {
   const [state, dispatch] = useReducer(reducer, {
     data: null,
     loading: true,
